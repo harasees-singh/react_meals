@@ -1,0 +1,9 @@
+.container{
+    background-color: purple;
+    color: white;
+    margin-right: 20px;
+    padding: 5px;
+    width: 4rem;
+    border-radius: 40px;
+    font-size: large;
+}

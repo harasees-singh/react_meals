@@ -1,0 +1,15 @@
+.container{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    align-items: center;
+    padding: 15px;
+    background-color: pink;
+    color: purple;
+    width: 100vw
+}
+.label{
+    font-size: 1.5rem;
+    font-weight: 600;
+    margin-left: 10px;
+}

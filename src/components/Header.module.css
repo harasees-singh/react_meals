@@ -1,0 +1,7 @@
+.container{
+    width: 100vw;
+    max-width: 40vw;
+    min-height: 30vh;
+    background-color: azure;
+    margin: 20px;
+}
