@@ -1,9 +1,26 @@
 .container{
-    background-color: purple;
+    background-color: rgb(209, 101, 209);
     color: white;
     margin-right: 20px;
-    padding: 5px;
+    padding: 10px;
     width: 4rem;
     border-radius: 40px;
     font-size: large;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+}
+
+.container > label{
+    background-color: azure;
+    width: 1.5rem;
+    border-radius: 400px;
+    color: purple;
+    font-weight: 600;
+}
+.active{
+    background-color: purple;
+}
+.active:hover{
+    cursor:pointer
 }

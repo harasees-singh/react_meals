@@ -1,0 +1,34 @@
+.container{
+    background-color: rgb(190, 23, 126);
+    margin-bottom: 10px;
+    display: flex;
+    padding: 15px;
+    justify-content: space-between;
+    align-items: center;
+    color: white;
+    border-radius: 30px;
+}
+.arrows{
+    display: flex;
+    flex-direction: column;
+    margin: 3px;
+}
+
+.quantity{
+    display: flex;
+    font-size: large;
+    flex-direction: row;
+    align-content: center;
+}
+.numeric{
+    background-color: rgb(54, 166, 166);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 10px;
+}
+.arrow:hover{
+    cursor: pointer;
+    background-color: pink;
+    border-color: rgb(205, 91, 110);
+}
