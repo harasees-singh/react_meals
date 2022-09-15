@@ -2,7 +2,7 @@ import classes from './Item.module.css'
 import { AiOutlinePlus } from 'react-icons/ai'
 import { AiOutlineMinus } from 'react-icons/ai'
 import AuthContext from '../store/auth-context'
-import React, { useContext } from 'react'
+import React, { useContext, useCallback } from 'react'
 const Item = ({ item }) => {
     const ctx = useContext(AuthContext);
     const Increase = () => {
@@ -18,7 +18,7 @@ const Item = ({ item }) => {
         })
         ctx.setItemCount( (prevState) => prevState + 1);
     }
-    const Decrease = () => {
+    const Decrease = useCallback(() => {
         ctx.setItemList( (prevState) => {
             const newList = prevState.map( (itemfromList) => {
                 if(item.id === itemfromList.id && itemfromList.quantity >= 1) ctx.setItemCount( (prevState) => prevState - 1);
@@ -29,7 +29,9 @@ const Item = ({ item }) => {
             })
             return newList;
         })
-    }
+    }, [])
+    // useCallback is to store functions that won't change, so that can be reused in case of re-rendering a component
+    // useMemo is a similar hook to store objects like lists and so on that need not be re evaluated each time a component is re-rendered
     return (
         <div id={item.id} className={classes.container}>
             <div>

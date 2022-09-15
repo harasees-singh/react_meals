@@ -2,7 +2,11 @@ import classes from './Cart.module.css'
 import Modal from '../UI/Modal';
 import { useState, useContext, useEffect } from 'react'
 import AuthContext from '../store/auth-context';
+
+// import './SignUpForm.css'
 const Cart = () => {
+
+
     const ctx = useContext(AuthContext);
     const { itemCount } = ctx;
     const [display, setDisplay] = useState(false);

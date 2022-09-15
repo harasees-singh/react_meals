@@ -11,24 +11,24 @@ const AuthContext = createContext({
 
 export const AuthContextProvider = (props) => {
     const [itemList, setItemList] = useState([
-        {
-            id: 'apple',
-            name: 'Apple',
-            quantity: 0,
-            price: 50
-        },
-        {
-            id: 'chocolate',
-            name: 'Chocolate',
-            quantity: 0,
-            price: 60
-        },
-        {
-            id: 'grapes',
-            name: 'Grapes',
-            quantity: 0,
-            price: 75
-        }
+        // {
+        //     id: 'apple',
+        //     name: 'Apple',
+        //     quantity: 0,
+        //     price: 50
+        // },
+        // {
+        //     id: 'chocolate',
+        //     name: 'Chocolate',
+        //     quantity: 0,
+        //     price: 60
+        // },
+        // {
+        //     id: 'grapes',
+        //     name: 'Grapes',
+        //     quantity: 0,
+        //     price: 75
+        // }
     ]);
     const [itemCount, setItemCount] = useState(0);
 
