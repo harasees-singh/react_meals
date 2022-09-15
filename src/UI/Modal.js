@@ -11,8 +11,13 @@ const Modal = ({ setDisplay }) => {
     const [displayForm, setDisplayForm] = useState(false);
     const { itemCount } = ctx;
 
-    const { renderFormInputs, isFormValid } = useForm(signupForm)
+    const { renderFormInputs, isFormValid, form } = useForm(signupForm)
 
+    const placeOrderHandler = (event) => {
+        event.preventDefault();
+        console.log(form);
+    }
+    
     useEffect(() => {
         if (itemCount === 0) setDisplay(false);
     }, [itemCount])
@@ -41,7 +46,7 @@ const Modal = ({ setDisplay }) => {
                 </footer>
                 {displayForm && <form className='form-container'>
                     {renderFormInputs()}
-                    <button type='submit' disabled={!isFormValid()}>Confirm Order</button>
+                    <button type='submit' disabled={!isFormValid()} onClick={placeOrderHandler}>Confirm Order</button>
                 </form>}
             </div>
         </>

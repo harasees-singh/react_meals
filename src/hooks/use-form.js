@@ -85,7 +85,7 @@ function useForm(formObj) {
             })
         )
     }
-    return { renderFormInputs, isFormValid };
+    return { renderFormInputs, isFormValid, form };
 }
 
 export default useForm;
