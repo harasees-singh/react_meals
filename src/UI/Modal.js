@@ -1,13 +1,14 @@
 import classes from './Modal.module.css'
 import Card from './Card';
 import AuthContext from '../store/auth-context';
-import { useContext, useEffect } from 'react'
+import { useContext, useEffect, useState } from 'react'
 import Item from '../components/Item';
 import useForm from '../hooks/use-form'
 import { signupForm } from '../utils/formFieldConfig'
 import '../SignUp/SignUpForm.css'
 const Modal = ({ setDisplay }) => {
     const ctx = useContext(AuthContext)
+    const [displayForm, setDisplayForm] = useState(false);
     const { itemCount } = ctx;
 
     const { renderFormInputs, isFormValid } = useForm(signupForm)
@@ -34,14 +35,14 @@ const Modal = ({ setDisplay }) => {
                     <button onClick={() => { setDisplay(false) }} className={classes.button}>
                         Cancel
                     </button>
-                    <button className={classes.button}>
+                    {!displayForm && <button onClick={() => {setDisplayForm(true)}} className={classes.button}>
                         Order
-                    </button>
+                    </button>}
                 </footer>
-                <form className='form-container'>
+                {displayForm && <form className='form-container'>
                     {renderFormInputs()}
                     <button type='submit' disabled={!isFormValid()}>Confirm Order</button>
-                </form>
+                </form>}
             </div>
         </>
     )
