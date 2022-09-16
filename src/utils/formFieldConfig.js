@@ -73,7 +73,7 @@ export const signupForm = {
         validationRules:[
             requiredRule('number'),
             minLengthRule('number', 10),
-            maxLengthRule('number', 10),
+            maxLengthRule('number', 11),
         ],
     },
     address: {
@@ -81,7 +81,7 @@ export const signupForm = {
         validationRules:[
             requiredRule('address'),
             minLengthRule('address', 8),
-            maxLengthRule('address', 28),
+            maxLengthRule('address', 100),
         ],
     },
 };

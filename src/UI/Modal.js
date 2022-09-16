@@ -1,9 +1,9 @@
 import classes from './Modal.module.css'
-import Card from './Card';
 import AuthContext from '../store/auth-context';
 import { useContext, useEffect, useState } from 'react'
 import Item from '../components/Item';
 import useForm from '../hooks/use-form'
+import useHttp from '../hooks/use-http'
 import { signupForm } from '../utils/formFieldConfig'
 import '../SignUp/SignUpForm.css'
 const Modal = ({ setDisplay }) => {
@@ -11,11 +11,25 @@ const Modal = ({ setDisplay }) => {
     const [displayForm, setDisplayForm] = useState(false);
     const { itemCount } = ctx;
 
+    const [isLoading, error, orderHandler] = useHttp('POST', 'https://react-a83be-default-rtdb.firebaseio.com/Order.json', ()=>{})
+
     const { renderFormInputs, isFormValid, form } = useForm(signupForm)
 
     const placeOrderHandler = (event) => {
         event.preventDefault();
-        console.log(form);
+        let addressDetails = [];
+        
+        Object.values(form).map((inputObj) => {
+            const { value, label, errorMessage, valid, renderInput } = inputObj;
+            addressDetails.push(value)
+        })
+
+        let orderItems = [];
+        ctx.itemList.forEach(item => {
+            if(item.quantity)
+                orderItems.push(item);
+        });
+        orderHandler(orderItems, addressDetails);
     }
     
     useEffect(() => {

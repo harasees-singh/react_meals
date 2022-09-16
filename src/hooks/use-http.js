@@ -4,7 +4,7 @@ const useHttp = (method, url, setItemList) => {
     const [isLoading, setIsLoading] = useState(false);
     const [error, setError] = useState(null);
     
-    const orderHandler = useCallback(async (order) => {
+    const orderHandler = useCallback(async (order, address) => {
         const loadedItems = [];
         setIsLoading(true);
         setError(null);
@@ -15,7 +15,7 @@ const useHttp = (method, url, setItemList) => {
                     url,
                     {
                         method: 'POST',
-                        body: JSON.stringify({ text: order }),
+                        body: JSON.stringify({ orderDetails: order, addressDetails: address}),
                         headers: {
                             'Content-Type': 'application/json',
                         },
@@ -33,7 +33,7 @@ const useHttp = (method, url, setItemList) => {
             // POST logic
             if (method === 'POST') {
                 const generatedId = data.name; // firebase-specific => "name" contains generated id
-                console.log(`order placed with id: ${generatedId}. Your order details : ${order}`);
+                console.log(`order placed with id: ${generatedId}`);
             }
             // GET logic
             else {
